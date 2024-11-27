@@ -14,9 +14,10 @@
                 class="m-2"></button>
                 <button pButton label="Details" size="small" (click)="navigateDetailServices()"
                 class="m-2"></button>
-            <!-- <button pButton label="Edit" (click)="navigateAddServices()" [disabled]="!isEditButtonDisabled" class="m-2 edit-button"></button>  -->
+            <!-- <button pButton label="Edit" class="p-button-rounded m-2 " (click)="navigateAddServices()" [disabled]="!isEditButtonDisabled" class="m-2 edit-button"></button>  -->
             <button pButton label="Edit" size="small" (click)="navigateEditService()" class="m-2 edit-button"></button>
-            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded m-2 "
+            <button pButton pRipple icon="pi pi-copy" 
+            
                 (click)="navigateCopyService()"></button>
             <button pButton label="Export" size="small" (click)="exportExcel()" icon="pi pi-upload"
                 class="m-2"></button>
