@@ -53,7 +53,7 @@
                 <p-checkbox (onChange)="onSelectAllRecords($event)" [value]="records"></p-checkbox>
             </th>
             <th fd-table-cell>Line</th>
-            <th fd-table-cell>Del.Ind</th>
+            <!-- <th fd-table-cell>Del.Ind</th> -->
             <th fd-table-cell pResizableColumn>Service.No</th>
             <th fd-table-cell pResizableColumn>ShortText</th>
             <th fd-table-cell pResizableColumn>Quantity</th>
@@ -91,7 +91,7 @@
             <td>
                 {{ rowIndex + ri + 1 }}
             </td>
-            <td pEditableColumn>
+            <!-- <td pEditableColumn>
                 <p-cellEditor>
                     <ng-template pTemplate="input">
                         <input pInputText type="checkbox" [(ngModel)]="record.deletionIndicator">
@@ -100,7 +100,7 @@
                         {{record.deletionIndicator}}
                     </ng-template>
                 </p-cellEditor>
-            </td>
+            </td> -->
             <td pEditableColumn>
                 <p-cellEditor>
                     <ng-template pTemplate="input">
@@ -495,9 +495,9 @@
             <td>
             </td>
 
-            <td>
+            <!-- <td>
                 <input name="deletionIndicator" type="checkbox" [(ngModel)]="newService.deletionIndicator">
-            </td>
+            </td> -->
 
             <td>
                 <p-dropdown [options]="recordsServiceNumber" [(ngModel)]="selectedServiceNumber"
