@@ -72,12 +72,13 @@
         <div class="field col-12 md:col-6">
 
             <p-dropdown [options]="recordsMeasure" formControlName="baseUnitOfMeasurement"
-                optionValue="UnitOfMeasureLongName" optionLabel="UnitOfMeasureLongName" [filter]="true"
-                [filterFields]="['UnitOfMeasureLongName','UnitOfMeasureName']" [showClear]="true"
+                optionValue="code" optionLabel="code" [filter]="true"
+                [filterFields]="['code','description']" [showClear]="true"
                 placeholder="Select Base UnitOfMeasure" [virtualScroll]="true" [virtualScrollItemSize]="40">
                 <ng-template let-record pTemplate="item">
                     <div class="flex align-items-center gap-2">
-                        <div>{{ record.UnitOfMeasureLongName }}::{{ record.UnitOfMeasureName }}</div>
+                        <!-- <div>{{ record.UnitOfMeasureLongName }}::{{ record.UnitOfMeasureName }}</div> -->
+                        <div>{{ record.code }}::{{ record.description }}</div>
                     </div>
                 </ng-template>
             </p-dropdown>
@@ -104,13 +105,13 @@
             </div>
             <div class="field col-12 md:col-6">
                 <p-dropdown [options]="recordsMeasure" formControlName="toBeConvertedUnitOfMeasurement"
-                    optionValue="UnitOfMeasureLongName" optionLabel="UnitOfMeasureLongName" [filter]="true"
-                    [filterFields]="['UnitOfMeasureLongName','UnitOfMeasureName']" [showClear]="true"
+                    optionValue="code" optionLabel="code" [filter]="true"
+                    [filterFields]="['code','description']" [showClear]="true"
                     placeholder="Select ToBeConverted UnitOfMeasure" [virtualScroll]="true"
                     [virtualScrollItemSize]="40">
                     <ng-template let-record pTemplate="item">
                         <div class="flex align-items-center gap-2">
-                            <div>{{ record.UnitOfMeasureLongName }}::{{ record.UnitOfMeasureName }}</div>
+                            <div>{{ record.code }}::{{ record.description }}</div>
                         </div>
                     </ng-template>
                 </p-dropdown>
@@ -125,12 +126,12 @@
             </div>
             <div class="field col-12 md:col-6">
                 <p-dropdown [options]="recordsMeasure" formControlName="defaultUnitOfMeasurement"
-                    optionValue="UnitOfMeasureLongName" optionLabel="UnitOfMeasureLongName" [filter]="true"
-                    [filterFields]="['UnitOfMeasureLongName','UnitOfMeasureName']" [showClear]="true"
+                    optionValue="code" optionLabel="code" [filter]="true"
+                    [filterFields]="['code','description']" [showClear]="true"
                     placeholder="Select Converted UnitOfMeasure" [virtualScroll]="true" [virtualScrollItemSize]="40">
                     <ng-template let-record pTemplate="item">
                         <div class="flex align-items-center gap-2">
-                            <div>{{ record.UnitOfMeasureLongName }}::{{ record.UnitOfMeasureName }}</div>
+                            <div>{{ record.code }}::{{ record.description }}</div>
                         </div>
                     </ng-template>
                 </p-dropdown>

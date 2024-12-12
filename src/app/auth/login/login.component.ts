@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
 import { AuthUser } from '../auth-user.model';
+import { jwtDecode } from 'jwt-decode';
 //import { AlertService } from 'src/app/shared/alert.service';
 
 @Component({
@@ -43,7 +44,11 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
-          const user = new AuthUser(userData.value.username, res.id_token);
+          let decoded: any;
+          decoded = jwtDecode(res.id_token);
+          const userRoles = decoded.groups || [];
+
+          const user = new AuthUser(userData.value.username, res.id_token,userRoles);
           localStorage.setItem('token', res.id_token);
           this.authService.loggedInUser.next(user);
           this.loading = false;

@@ -228,13 +228,14 @@
                         </ng-container>
                         <ng-container *ngIf="!updateSelectedServiceNumberRecord">
                             <p-dropdown [options]="recordsUnitOfMeasure" [(ngModel)]="record.unitOfMeasurementCode"
-                                [ngModelOptions]="{standalone: true}" optionValue="UnitOfMeasureLongName"
-                                optionLabel="UnitOfMeasureLongName" [filter]="true" [filterFields]="['UnitOfMeasureLongName','UnitOfMeasureName']"
+                                [ngModelOptions]="{standalone: true}" optionValue="code"
+                                optionLabel="code" [filter]="true" [filterFields]="['code','description']"
                                 [showClear]="true" placeholder=`{{record.unitOfMeasurementCode}}` [required]="true"
                                 [appendTo]="'body'" [virtualScroll]="true" [virtualScrollItemSize]="40">
                                 <ng-template let-record pTemplate="item">
                                     <div class="flex align-items-center gap-2">
-                                        <div>{{ record.UnitOfMeasureLongName }}::{{ record.UnitOfMeasureName }}</div>
+                                        <!-- <div>{{ record.UnitOfMeasureLongName }}::{{ record.UnitOfMeasureName }}</div> -->
+                                        <div>{{ record.code }}::{{ record.description }}</div>
                                     </div>
                                 </ng-template>
                             </p-dropdown>
@@ -586,13 +587,14 @@
 
                 <ng-container *ngIf="!selectedServiceNumberRecord">
                     <p-dropdown [options]="recordsUnitOfMeasure" [(ngModel)]="selectedUnitOfMeasure"
-                        [ngModelOptions]="{standalone: true}" optionValue="UnitOfMeasureLongName" optionLabel="UnitOfMeasureLongName" [filter]="true"
-                        [filterFields]="['UnitOfMeasureLongName','UnitOfMeasureName']" [showClear]="true" placeholder="Select UnitOfMeasure"
+                        [ngModelOptions]="{standalone: true}" optionValue="code" optionLabel="code" [filter]="true"
+                        [filterFields]="['code','description']" [showClear]="true" placeholder="Select UnitOfMeasure"
                         [required]="true" [appendTo]="'body'"
                         [virtualScroll]="true" [virtualScrollItemSize]="40">
                         <ng-template let-record pTemplate="item">
                             <div class="flex align-items-center gap-2">
-                                <div>{{ record.UnitOfMeasureLongName }}::{{ record.UnitOfMeasureName }}</div>
+                                <!-- <div>{{ record.UnitOfMeasureLongName }}::{{ record.UnitOfMeasureName }}</div> -->
+                                <div>{{ record.code }}::{{ record.description }}</div>
                             </div>
                         </ng-template>
                     </p-dropdown>

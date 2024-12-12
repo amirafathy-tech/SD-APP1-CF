@@ -5,6 +5,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { throwError, BehaviorSubject, of } from 'rxjs';
 import { AuthUser } from './auth-user.model';
 import { environment } from '../../environments/environment';
+import { jwtDecode } from 'jwt-decode';
 
 export interface AuthResponseBackend {
   access_token: string;
@@ -12,6 +13,7 @@ export interface AuthResponseBackend {
   id_token: string;
   token_type: string;
   expires_in: number;
+  groups:string[]
 }
 
 @Injectable({ providedIn: 'root' })
@@ -28,6 +30,33 @@ export class AuthService {
   private tokenExpirationTimer: any;
 
   constructor(private http: HttpClient, private router: Router) { }
+
+   /**
+   * Checks if the logged-in user has one or more required roles.
+   * @param requiredRoles Array of required roles
+   * @returns `true` if the user has the required role, otherwise `false`.
+   */
+  //  hasRole(requiredRoles: string[]): boolean {
+  //   let user = new AuthUser("","");
+  //   if(this.loggedInUser.value){
+  //    user = this.loggedInUser.value;
+  //   }
+  //   if (!user || !user.roles) return false;
+  //   return requiredRoles.some(role => user.roles.includes(role));
+  //   }
+
+  hasRole(requiredRoles: string[]): boolean {
+    const user = this.loggedInUser.value;
+    console.log(user);
+    console.log(user?.roles);
+    
+    if (!user || !user.roles) {
+      return false;
+    }
+    return requiredRoles.some(role => user.roles.includes(role));
+  }
+  
+  
 
   signUp(value: string, familyName: string, givenName: string, userName: string) {
     const headers = new HttpHeaders({
@@ -74,7 +103,13 @@ export class AuthService {
         data.toString(), { headers }
       ).pipe(tap(resData => {
         console.log(resData.id_token)
-        const user = new AuthUser(email, resData.id_token);
+        //decoding the token:
+        let decoded: any;
+        decoded = jwtDecode(resData.id_token);
+       // const decoded: JwtPayload = jwtDecode(token);
+        const userRoles = decoded.groups || [];
+        
+        const user = new AuthUser(email, resData.id_token,userRoles);
         localStorage.setItem('token', resData.id_token);
         this.loggedInUser.next(user);
         return user;

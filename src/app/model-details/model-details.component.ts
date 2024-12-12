@@ -77,9 +77,9 @@ export class ModelDetailsComponent {
     this.apiService.get<ServiceMaster[]>('servicenumbers').subscribe(response => {
       this.recordsServiceNumber = response.filter(record => record.deletionIndicator === false);
     });
-    // this.apiService.get<UnitOfMeasure[]>('measurements').subscribe(response => {
-    //   this.recordsUnitOfMeasure = response;
-    // });
+    this.apiService.get<UnitOfMeasure[]>('measurements').subscribe(response => {
+      this.recordsUnitOfMeasure = response;
+    });
     this.apiService.get<ServiceType[]>('servicetypes').subscribe(response => {
       this.recordsServiceType = response;
     });

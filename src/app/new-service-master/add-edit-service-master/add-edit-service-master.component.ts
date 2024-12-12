@@ -77,9 +77,9 @@ export class AddEditServiceMasterComponent implements OnInit {
     this.apiService.get<any[]>('servicetypes').subscribe(response => {
       this.recordsServiceType = response;
     });
-    // this.apiService.get<any[]>('measurements').subscribe(response => {
-    //   this.recordsMeasure = response;
-    // });
+    this.apiService.get<any[]>('measurements').subscribe(response => {
+      this.recordsMeasure = response;
+    });
     this.apiService.get<any[]>('materialgroups').subscribe(response => {
       this.recordsMaterialGrp = response;
     });

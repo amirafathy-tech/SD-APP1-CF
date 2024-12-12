@@ -52,9 +52,12 @@ import { AddEditServiceMasterComponent } from './new-service-master/add-edit-ser
 import { HomeComponent } from './home/home.component';
 import { NewServiceMasterComponent } from './new-service-master/new-service-master.component';
 import { ServiceMasterDetailComponent } from './new-service-master/service-master-detail/service-master-detail.component';
+import { HasRoleDirective } from './shared/has-role.directive';
 
 @NgModule({
   declarations: [
+    HasRoleDirective,
+
     AppComponent,
     HeaderComponent,
     ModelComponent,
@@ -71,7 +74,8 @@ import { ServiceMasterDetailComponent } from './new-service-master/service-maste
     AddEditServiceMasterComponent,
     HomeComponent,
     NewServiceMasterComponent,
-    ServiceMasterDetailComponent
+    ServiceMasterDetailComponent,
+    HasRoleDirective
   ],
   imports: [
     FundamentalNgxCoreModule,

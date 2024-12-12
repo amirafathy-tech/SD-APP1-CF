@@ -24,7 +24,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: AuthComponent },
-  { path: 'servicetype',canActivate:[AuthGuard], component: ServiceTypeComponent },
+  
+  { path: 'servicetype',canActivate:[AuthGuard], component: ServiceTypeComponent }, //data: { role: ['Admin', 'Manager'] }
   {
     path: 'model',canActivate:[AuthGuard], component: ModelComponent
   },

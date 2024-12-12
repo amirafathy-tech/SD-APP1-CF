@@ -12,8 +12,11 @@ export class ServiceMaster {
     public serviceTypeCode: string;
     public materialGroupCode: string;
     public baseUnitOfMeasurement: string;
+
     public toBeConvertedUnitOfMeasurement: string
     public defaultUnitOfMeasurement: string;
+
+    unitOfMeasurementCode?:string;
   
     constructor(searchTerm: string, description: string, serviceText: string, shortTextChangeAllowed: boolean, deletionIndicator: boolean, mainItem: boolean,
       numberToBeConverted: number,
