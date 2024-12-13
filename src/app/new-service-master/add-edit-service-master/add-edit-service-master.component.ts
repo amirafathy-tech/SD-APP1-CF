@@ -64,11 +64,14 @@ export class AddEditServiceMasterComponent implements OnInit {
         this.serviceMasterInfo = state;
         this.copyMode = copyFlag;
         this.pageId = state?.serviceNumberCode;
+        console.log(this.serviceMasterInfo);
 
       } else {
         this.serviceMasterInfo = state;
         this.editMode = true;
         this.pageId = state?.serviceNumberCode;
+        console.log(this.serviceMasterInfo);
+        
       }
     }
   }
@@ -90,14 +93,15 @@ export class AddEditServiceMasterComponent implements OnInit {
   }
 
   getServiceMasterById(id: number) {
-    this.serviceMasterService.getRecord(id).subscribe({
-      next: (res: ServiceMaster) => {
-        console.log(res);
-        this.serviceMasterInfo = res;
-      }, error: (err: any) => {
-        console.log(err);
+      // this.apiService.getID<ServiceMaster>('servicenumbers',id).subscribe({
+      // next: (res: ServiceMaster) => {
+      //   console.log(res);
+      //   this.serviceMasterInfo = res;
+      // }, error: (err: any) => {
+      //   console.log(err);
 
-      }, complete: () => {
+      // }, complete: () => {
+      if(this.serviceMasterInfo){
         this.serviceMasterForm.patchValue({
           serviceNumberCode:this.serviceMasterInfo?.serviceNumberCode,
           searchTerm:this.serviceMasterInfo?.searchTerm,
@@ -115,8 +119,9 @@ export class AddEditServiceMasterComponent implements OnInit {
           materialGroupCode:this.serviceMasterInfo?.materialGroupCode
 
         })
-      }
-    })
+      }// end if
+     // }
+    //})
   }
 
   onSubmit(form: FormGroup) {
