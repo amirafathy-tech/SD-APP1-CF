@@ -27,6 +27,7 @@ export class ModelSpecDetails {
     public biddersLine:boolean;
     public supplementaryLine:boolean;
     public lotSizeForCostingIsOne:boolean;
+  
     
 
     constructor(serviceNumberCode: number,lineTypeCode: string,unitOfMeasurementCode: string,currencyCode: string,

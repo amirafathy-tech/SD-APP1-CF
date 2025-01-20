@@ -1,6 +1,17 @@
+---
 applications:
   - name: sd-app
-    buildpack: staticfile_buildpack
-    memory: 1000MB
+    path: approuter
+    buildpack: nodejs_buildpack
     instances: 1
-    path: dist/btp-sd-app
+    memory: 100MB
+    services:
+      - name: xsuaa-app1
+      #- name: ias-srv
+    env:
+      TENANT_HOST_PATTERN: '^(.*)\\.cfapps.us10-001.hana.ondemand.com\.com$'
+      #XS_SECURITY_FILE: "xs-security.json"
+      #IAS_TENANT_URL: 'https://afeesahfw.trial-accounts.ondemand.com'
+      #CLIENT_ID: 'bce94259-1871-4bb2-a181-69777cb71ba0'
+      #CLIENT_SECRET: '.7[Jj0tw?FTi[3kg:A:W?4OjRR@HY3gvW'
+

@@ -22,8 +22,8 @@ export class AuthService {
   private clientID = environment.clientID
   private clientSecret = environment.clientSecret
 
-  private authUrl = "https://proxy-app.cfapps.us10-001.hana.ondemand.com/auth"
-  private registerUrl = "https://proxy-app.cfapps.us10-001.hana.ondemand.com/api/iasusers"
+  private authUrl = "https://proxy-server.cfapps.eu10-004.hana.ondemand.com/auth"
+  private registerUrl = "https://proxy-server.cfapps.eu10-004.hana.ondemand.com/api/iasusers"
 
 
   loggedInUser = new BehaviorSubject<AuthUser | null>(null);
@@ -61,6 +61,7 @@ export class AuthService {
   signUp(value: string, familyName: string, givenName: string, userName: string) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
+      
     });
 
     const data = {

@@ -29,6 +29,7 @@ import { AnimateModule } from 'primeng/animate';
 import { CardModule } from 'primeng/card';
 import { FieldsetModule } from 'primeng/fieldset';
 import { TreeTableModule } from 'primeng/treetable';
+import { FileUploadModule } from 'primeng/fileupload';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -107,6 +108,8 @@ import { HasRoleDirective } from './shared/has-role.directive';
     CheckboxModule,
     FieldsetModule,
     TreeTableModule,
+    FileUploadModule,
+    
   
     NgHttpLoaderModule.forRoot(),
   ],

@@ -24,7 +24,6 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: AuthComponent },
-  
   { path: 'servicetype',canActivate:[AuthGuard], component: ServiceTypeComponent }, //data: { role: ['Admin', 'Manager'] }
   {
     path: 'model',canActivate:[AuthGuard], component: ModelComponent
@@ -46,7 +45,29 @@ const routes: Routes = [
       { path: 'test',canActivate:[AuthGuard], component: TestComponent },
     ]
   },
+  //!Without Security
+//   { path: '', component: ServiceTypeComponent }, 
+//   { path: 'servicetype', component: ServiceTypeComponent }, 
+// {
+//     path: 'model', component: ModelComponent
+//   },
+//   { path: 'add-model', component: AddModelComponent },
+//   { path: 'servicemaster', component: NewServiceMasterComponent },
+//   { path: 'add-edit-servicemaster', component: AddEditServiceMasterComponent },
+//   { path: 'detail-servicemaster', component: ServiceMasterDetailComponent },
+//   { path: 'modelSpecDetails', component: ModelDetailsComponent },
+//   { path: 'formulas', component: FormulasComponent },
 
+//   {
+//     path: 'formula',component: FormulaComponent,
+//     children: [
+//       { path: '', component: CreateComponent },
+//       { path: 'create', component: CreateComponent },
+//       { path: 'parameter', component: ParameterComponent },
+//       { path: 'relation',component: RelationComponent },
+//       { path: 'test', component: TestComponent },
+//     ]
+//   },
 
   /////
   // { path: '', component: AppComponent},
